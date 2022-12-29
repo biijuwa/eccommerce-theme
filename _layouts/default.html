@@ -1,0 +1,201 @@
+---
+layout: table_wrappers
+---
+
+<!DOCTYPE html>
+
+<html lang="{{ site.lang | default: 'en-US' }}">
+{% include head.html %}
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="svg-link" viewBox="0 0 24 24">
+      <title>Link</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+      </svg>
+    </symbol>
+    <symbol id="svg-search" viewBox="0 0 24 24">
+      <title>Search</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+        <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+    </symbol>
+    <symbol id="svg-menu" viewBox="0 0 24 24">
+      <title>Menu</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+        <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </symbol>
+    <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+      <title>Expand</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </symbol>
+    <symbol id="svg-doc" viewBox="0 0 24 24">
+      <title>Document</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+        <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+      </svg>
+    </symbol>
+  </svg>
+
+  <div class="side-bar">
+    <div class="site-header">
+      <a href="{{ '/' | absolute_url }}" class="site-title lh-tight"><img src="data:image/png;base64,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"></a>
+      <a href="#" id="menu-button" class="site-button">
+        <svg viewBox="0 0 24 24" class="icon"><use xlink:href="#svg-menu"></use></svg>
+      </a>
+    </div>
+    <nav role="navigation" aria-label="Main" id="site-nav" class="site-nav">
+      {% if site.just_the_docs.collections %}
+        {% assign collections_size = site.just_the_docs.collections | size %}
+        {% for collection_entry in site.just_the_docs.collections %}
+          {% assign collection_key = collection_entry[0] %}
+          {% assign collection_value = collection_entry[1] %}
+          {% assign collection = site[collection_key] %}
+          {% if collection_value.nav_exclude != true %}
+            {% if collections_size > 1 %}
+              <div class="nav-category">{{ collection_value.name }}</div>
+            {% endif %}
+            {% include nav.html pages=collection %}
+          {% endif %}
+        {% endfor %}
+      {% else %}
+        {% include nav.html pages=site.html_pages %}
+      {% endif %}
+    </nav>
+   <footer class="site-footer">  
+   </footer>
+  </div>
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+      {% if site.search_enabled != false %}
+        <div class="search">
+          <div class="search-input-wrap">
+            <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search {{ site.title }}" aria-label="Search {{ site.title }}" autocomplete="off">
+            <label for="search-input" class="search-label"><svg viewBox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      {% endif %}
+      {% include header_custom.html %}
+      {% if site.aux_links %}
+        <nav aria-label="Auxiliary" class="aux-nav">
+          <ul class="aux-nav-list">
+            {% for link in site.aux_links %}
+              <li class="aux-nav-list-item">
+                <a href="{{ link.last }}" class="site-button"
+                  {% if site.aux_links_new_tab %}
+                  target="_blank" rel="noopener noreferrer"
+                  {% endif %}
+                >
+                  {{ link.first }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </nav>
+      {% endif %}
+    </div>
+    <div id="main-content-wrap" class="main-content-wrap">
+      {% unless page.url == "/" %}
+        {% if page.parent %}
+          {%- for node in pages_list -%}
+            {%- if node.parent == nil -%}
+              {%- if page.parent == node.title or page.grand_parent == node.title -%}
+                {%- assign first_level_url = node.url | absolute_url -%}
+              {%- endif -%}
+              {%- if node.has_children -%}
+                {%- assign children_list = pages_list | where: "parent", node.title -%}
+                {%- for child in children_list -%}
+                  {%- if page.url == child.url or page.parent == child.title -%}
+                    {%- assign second_level_url = child.url | absolute_url -%}
+                  {%- endif -%}
+                {%- endfor -%}
+              {%- endif -%}
+            {%- endif -%}
+          {%- endfor -%}
+          <!-- <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+            <ol class="breadcrumb-nav-list">
+              {% if page.grand_parent %}
+                <li class="breadcrumb-nav-list-item"><a href="{{ first_level_url }}">{{ page.grand_parent }}</a></li>
+                <li class="breadcrumb-nav-list-item"><a href="{{ second_level_url }}">{{ page.parent }}</a></li>
+              {% else %}
+                <li class="breadcrumb-nav-list-item"><a href="{{ first_level_url }}">{{ page.parent }}</a></li>
+              {% endif %}
+              <li class="breadcrumb-nav-list-item"><span>{{ page.title }}</span></li>
+            </ol>
+          </nav> -->
+        {% endif %}
+      {% endunless %}
+      <div id="main-content" class="main-content" role="main">
+        {% if site.heading_anchors != false %} 
+          {% include vendor/anchor_headings.html html=content beforeHeading="true" anchorBody="<svg viewBox=\"0 0 16 16\" aria-hidden=\"true\"><use xlink:href=\"#svg-link\"></use></svg>" anchorClass="anchor-heading" anchorAttrs="aria-labelledby=\"%html_id%\"" %}
+        {% else %}
+          {{ content }}
+        {% endif %}
+
+        {% if page.has_children == true and page.has_toc != false %}
+          <hr>
+          <h2 class="text-delta">Articles</h2>
+          <ul>
+            {%- assign children_list = pages_list | where: "parent", page.title | where: "grand_parent", page.parent -%}
+            {% for child in children_list %}
+              <li>
+                <a href="{{ child.url | absolute_url }}">{{ child.title }}</a>{% if child.summary %} - {{ child.summary }}{% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+
+        {% capture footer_custom %}
+          {%- include footer_custom.html -%}
+        {% endcapture %}
+        {% if footer_custom != "" or site.last_edit_timestamp or site.gh_edit_link %}
+          <hr>
+          <footer>
+            <!-- {% if site.back_to_top %} -->
+              <p><a href="#top" id="back-to-top">{{ site.back_to_top_text }}</a></p>
+            <!-- {% endif %} -->
+
+            {{ footer_custom }}
+
+            {% if site.last_edit_timestamp or site.gh_edit_link %}
+              <div class="d-flex mt-2">
+                {% if site.last_edit_timestamp and site.last_edit_time_format and page.last_modified_date %}
+                  <p class="text-small text-grey-dk-000 mb-0 mr-2">
+                    Page last modified: <span class="d-inline-block">{{ page.last_modified_date | date: site.last_edit_time_format }}</span>.
+                  </p>
+                {% endif %}
+                {% if
+                  site.gh_edit_link and
+                  site.gh_edit_link_text and
+                  site.gh_edit_repository and
+                  site.gh_edit_branch and
+                  site.gh_edit_view_mode
+                %}
+                  <p class="text-small text-grey-dk-000 mb-0">
+                    <a href="{{ site.gh_edit_repository }}/{{ site.gh_edit_view_mode }}/{{ site.gh_edit_branch }}{% if site.gh_edit_source %}/{{ site.gh_edit_source }}{% endif %}/{{ page.path }}" id="edit-this-page">{{ site.gh_edit_link_text }}</a>
+                  </p>
+                {% endif %}
+              </div>
+            {% endif %}
+          </footer>
+        {% endif %}
+
+      </div>
+    </div>
+
+    {% if site.search_enabled != false %}
+      {% if site.search.button %}
+        <a href="#" id="search-button" class="search-button">
+          <svg viewBox="0 0 24 24" class="icon"><use xlink:href="#svg-search"></use></svg>
+        </a>
+      {% endif %}
+
+      <div class="search-overlay"></div>
+    {% endif %}
+  </div>
+</body>
+</html>
