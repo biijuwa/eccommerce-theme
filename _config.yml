@@ -15,7 +15,7 @@
 # in the templates via {{ site.myvariable }}.
 title: Ecommerce Knowledgebase
 description: Ecommerce Knowledgebase
-baseurl: "/eckb" # the subpath of your site, e.g. /blog
+baseurl: "/blog" # the subpath of your site, e.g. /blog
 url: "https://biijuwa.github.io/eckb" # the base hostname & protocol for your site, e.g. http://example.com
 
 permalink: pretty
